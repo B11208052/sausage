@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>北投市場葉記香腸 | 官方互動品牌旗艦站</title>
+  <meta name="description" content="一口葉記香腸，品味北投好時光。源自家族百年古法配方，嚴選100%台灣溫體豬後腿肉，3:7黃金肥瘦比，急速真空冷凍爆汁生香腸。">
+  <!-- Google Fonts: 復古明體與黑體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            retroRed: '#8F1D1D',
+            retroDarkRed: '#661212',
+            retroGold: '#D49B35',
+            retroBg: '#F6F0E4',
+            retroCard: '#ECE3D0',
+            retroWood: '#2D1E18',
+            retroDark: '#1A1412',
+            retroGreen: '#3D5A40'
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 台灣公有市場復古紙質與磁磚紋理 */
+    body {
+      background-color: #F6F0E4;
+      background-image: radial-gradient(#d5c8ad 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .retro-border {
+      border: 3px solid #2D1E18;
+      box-shadow: 4px 4px 0px #2D1E18;
+    }
+    .retro-border-gold {
+      border: 3px solid #D49B35;
+      box-shadow: 4px 4px 0px #8F1D1D;
+    }
+    .retro-card-shadow {
+      box-shadow: 6px 6px 0px #2D1E18;
+    }
+    .stamp-badge {
+      border: 2px dashed #8F1D1D;
+      transform: rotate(-4deg);
+    }
+    .wood-plaque {
+      background: linear-gradient(180deg, #3D261C 0%, #20130E 100%);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.5);
+    }
+    /* 自訂捲軸 */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #ECE3D0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8F1D1D;
+      border: 2px solid #2D1E18;
+    }
+  </style>
+</head>
+<body class="font-sans text-retroDark antialiased selection:bg-retroRed selection:text-white pb-28">
+
+  <!-- ========================================== -->
+  <!-- 0. 頂部老市場導覽列 (Sticky Header) -->
+  <!-- ========================================== -->
+  <header class="wood-plaque text-retroGold border-b-4 border-retroGold px-4 py-3 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-3">
+      <!-- LOGO 與 Slogan -->
+      <a href="#cover" class="flex items-center space-x-3 group">
+        <span class="text-3xl filter drop-shadow">🏮</span>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-serif font-black text-xl md:text-2xl tracking-wider text-amber-100 group-hover:text-amber-300 transition">
+              北投市場 葉記香腸
+            </span>
+            <span class="text-[11px] bg-retroRed text-amber-200 px-2 py-0.5 rounded border border-retroGold font-sans font-bold">
+              源自古法配方
+            </span>
+          </div>
+          <p class="text-xs text-amber-300 font-serif tracking-wide">一口葉記香腸，品味北投好時光。</p>
+        </div>
+      </a>
+
+      <!-- 快速跳轉錨點選單 (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-5 text-sm font-serif font-bold text-amber-100">
+        <a href="#cover" class="hover:text-amber-300 transition">🏮 品牌封面</a>
+        <a href="#gallery" class="hover:text-amber-300 transition">📸 產品與形象照</a>
+        <a href="#videoSection" class="hover:text-amber-300 transition">🎬 10秒短影音</a>
+        <a href="#surveySection" class="hover:text-amber-300 transition">📝 體驗問卷(送$50)</a>
+        <a href="#groupCalcSection" class="hover:text-amber-300 transition">🧮 團購算盤</a>
+      </nav>
+
+      <!-- 攤位即時狀況與炭火 ASMR 音效按鈕 -->
+      <div class="flex items-center space-x-3 text-xs md:text-sm">
+        <div class="hidden sm:flex items-center bg-black/50 px-3 py-1.5 rounded-full border border-retroGold/60">
+          <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping mr-2"></span>
+          <span class="text-stone-300">北投市場攤位：<strong class="text-amber-300">現烤熱賣中</strong></span>
+        </div>
+        <button id="sfxBtn" onclick="toggleAudio()" class="bg-retroRed hover:bg-retroDarkRed text-amber-100 px-3.5 py-1.5 rounded border border-amber-300 flex items-center gap-1.5 transition shadow-sm font-bold">
+          <span id="sfxIcon">🔊</span> <span id="sfxText">炭火滋滋聲</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 1. 網頁封面 (Hero Section / Web Cover) -->
+  <!-- ========================================== -->
+  <section id="cover" class="relative w-full border-b-4 border-retroWood py-10 md:py-16 px-4 overflow-hidden">
+    <!-- 復古宣紙微噪點背景裝飾 -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+      
+      <!-- 左側文案區 (佔 7 欄) -->
+      <div class="md:col-span-7 space-y-5 text-left">
+        <!-- 頂部木匾微標籤 -->
+        <div class="inline-flex items-center gap-2 bg-retroWood text-retroGold px-3.5 py-1.5 rounded border border-retroGold shadow-sm">
+          <span class="text-sm">🏮</span>
+          <span class="text-xs md:text-sm font-serif tracking-widest font-bold">台北北投公有市場・源自家族老手路</span>
+        </div>
+
+        <!-- 核心大標題 (主標與 Slogan) -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-retroRed leading-[1.15] tracking-tight">
+          一口葉記香腸，<br>
+          <span class="text-retroDark">品味北投好時光。</span>
+        </h1>
+
+        <!-- 價值承諾副標題 -->
+        <p class="text-base md:text-lg text-retroDark/85 font-sans leading-relaxed max-w-xl">
+          堅持採用 100% 台灣新鮮溫體豬後腿肉，以 <strong>3:7 黃金肥瘦比例</strong> 手工灌入天然薄脆豬小腸衣。炭火慢烤逼出滾燙肉汁，絕不加防腐劑與人工增稠澱粉，每一口都是真材實料爆汁感動。
+        </p>
+
+        <!-- 規格信任標籤組 -->
+        <div class="flex flex-wrap gap-2 pt-1">
+          <span class="bg-retroCard text-retroDark text-xs font-bold px-3 py-1.5 rounded border-2 border-retroWood">
+            🔥 3:7 溫體後腿肉
+          </span>
+          <span class="bg-retroCard text-retroDark text-xs font-bold px-3 py-1.5 rounded border-2 border-retroWood">
+            🍶 58度金門高粱去腥提香
+          </span>
+          <span class="bg-retroGreen text-amber-100 text-xs font-bold px-3 py-1.5 rounded border-2 border-retroWood">
+            🛡️ SGS 無防腐劑認證合格
+          </span>
+        </div>
+
+        <!-- 雙行動按鈕與輔助資訊 -->
+        <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="#gallery" class="text-center bg-retroRed hover:bg-retroDarkRed text-amber-100 font-serif font-black text-lg px-7 py-3.5 rounded border-3 border-retroGold shadow-[4px_4px_0px_#2D1E18] hover:translate-x-0.5 hover:translate-y-0.5 transition">
+            🛒 立即訂購半斤嚐鮮裝（$200）
+          </a>
+          <a href="#groupCalcSection" class="text-center bg-retroCard hover:bg-amber-100 text-retroDark font-sans font-bold text-base px-6 py-3.5 rounded border-2 border-retroWood shadow-[3px_3px_0px_#2D1E18] transition">
+            📦 社區團購滿 8 斤免運
+          </a>
+        </div>
+        <p class="text-xs text-retroDark/60 flex items-center gap-2">
+          <span>⚡ 雙北支援超商冷凍店到店（運費只要 $99）</span>
+          <span>•</span>
+          <span>今日現灌數量有限，售完為止</span>
+        </p>
+      </div>
+
+      <!-- 右側視覺區：炭烤爆汁焦點展示卡 (佔 5 欄) -->
+      <div class="md:col-span-5 relative">
+        <!-- 硃砂紅手蓋印章 (仿老店防偽) -->
+        <div class="absolute -top-5 -left-5 z-20 bg-retroRed text-amber-100 rounded-full w-24 h-24 p-2 flex flex-col items-center justify-center border-2 border-dashed border-amber-300 shadow-lg -rotate-12 pointer-events-none">
+          <span class="text-[10px] tracking-widest font-serif">北投市場</span>
+          <span class="text-sm font-black font-serif">老味傳承</span>
+          <span class="text-[9px] text-amber-200">品質保證</span>
+        </div>
+
+        <!-- 炭火黑陶展示框架 -->
+        <div class="bg-retroWood p-4 rounded-lg retro-border shadow-[6px_6px_0px_#2D1E18]">
+          <div class="relative bg-gradient-to-b from-stone-900 via-neutral-900 to-amber-950/80 rounded border-2 border-retroGold p-7 text-center overflow-hidden min-h-[320px] flex flex-col justify-center items-center text-amber-100">
+            <div class="text-7xl mb-2 filter drop-shadow-[0_10px_15px_rgba(234,88,12,0.7)] animate-pulse">
+              🔥🥓🔥
+            </div>
+            <h3 class="font-serif font-black text-2xl text-amber-200 tracking-wider">
+              現烤炭香・爆汁噴泉
+            </h3>
+            <p class="text-xs text-amber-300/80 mt-1">天然薄脆豬小腸衣 ｜ 喀滋咬勁 ｜ 汁水豐沛</p>
+
+            <div class="mt-5 inline-block bg-black/60 px-4 py-2 rounded-full border border-amber-400/50">
+              <p class="text-xs text-amber-100">
+                ⚡ 今日北投門市新鮮灌製：<strong class="text-amber-300">限額 100 台斤</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 封面自煮神隊友：火候指南互動算盤 -->
+    <div class="max-w-4xl mx-auto mt-10 pt-8 border-t-2 border-dashed border-stone-400">
+      <div class="text-center mb-5">
+        <h3 class="font-serif text-xl md:text-2xl font-black text-retroDark inline-block border-b-2 border-retroRed pb-1">
+          🍳 阿嬤不藏私：自煮料理火候指南
+        </h3>
+        <p class="text-xs md:text-sm text-retroDark/70 mt-1">免解凍直接下鍋！點擊切換器具，查看零失敗黃金料理火候</p>
+      </div>
+
+      <div class="flex justify-center gap-2 mb-4 flex-wrap">
+        <button onclick="setRecipe('airfryer')" id="btn-airfryer" class="recipe-btn px-4 py-2 rounded font-bold retro-border bg-retroRed text-white text-sm">
+          🌪️ 氣炸鍋（免顧火首選）
+        </button>
+        <button onclick="setRecipe('pan')" id="btn-pan" class="recipe-btn px-4 py-2 rounded font-bold retro-border bg-retroCard text-retroDark text-sm">
+          🍳 平底鍋無油乾煎
+        </button>
+        <button onclick="setRecipe('rice')" id="btn-rice" class="recipe-btn px-4 py-2 rounded font-bold retro-border bg-retroCard text-retroDark text-sm">
+          🍚 蒜苗爆炒香腸切片
+        </button>
+      </div>
+
+      <div id="recipeCard" class="bg-white p-5 rounded-lg retro-border shadow-sm">
+        <!-- JS 動態填入食譜 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 產品照 & 形象照 (Product & Image Gallery) -->
+  <!-- ========================================== -->
+  <section id="gallery" class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+    <div class="text-center mb-10">
+      <div class="inline-block bg-retroWood text-retroGold text-xs font-serif px-3.5 py-1 rounded mb-2">
+        真材實料・實境拍攝
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-black text-retroDark">
+        📸 產品本色・北投老字號形象鑑賞
+      </h2>
+      <p class="text-sm text-retroDark/70 mt-2 max-w-xl mx-auto">
+        每一張照片，都是我們每天清晨在北投市場真實灌製與炭烤的見證。無化學修飾，只有純粹肉質與傳統火候。
+      </p>
+    </div>
+
+    <!-- 雙欄大卡：產品照 vs 形象照 -->
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- 卡片 1：核心產品照 (產品照.jpg) -->
+      <div class="bg-white rounded-lg retro-border retro-card-shadow overflow-hidden flex flex-col justify-between">
+        <div>
+          <!-- 照片框架 -->
+          <div class="relative bg-stone-900 border-b-4 border-retroWood overflow-hidden group">
+            <img src="產品照.jpg" onerror="this.onerror=null; this.src='Finish/產品照.jpg';" 
+                 alt="北投市場葉記香腸核心產品照" 
+                 class="w-full h-80 object-cover object-center group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-retroRed text-amber-100 text-xs font-serif font-black px-3 py-1 rounded border border-retroGold shadow">
+              核心產品・實品特寫
+            </span>
+            <span class="absolute bottom-3 right-3 bg-black/70 text-amber-200 text-xs px-2.5 py-1 rounded backdrop-blur-sm">
+              3:7 溫體豬後腿肉 ｜ 爆汁切面
+            </span>
+          </div>
+
+          <!-- 說明文案 -->
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-serif text-2xl font-black text-retroDark">
+                招牌噴水生香腸（真空保鮮裝）
+              </h3>
+              <span class="text-retroRed font-serif font-black text-xl">NT$ 200 <span class="text-xs text-stone-500 font-sans">/ 半斤</span></span>
+            </div>
+            <p class="text-xs text-stone-500 mb-4">每包半斤（300g ± 10%，約 5~6 根）｜ 每台斤 400 元</p>
+            
+            <p class="text-sm text-retroDark/80 leading-relaxed mb-4">
+              特選台灣新鮮溫體豬後腿肉，手工分切保留纖維彈性，搭配天然豬小腸衣，咬感爽脆不乾澀。以金門 58 度高粱酒微醺醃製，氣炸或煎烤後熱油肉汁自然湧出，無防腐劑急速冷凍保鮮。
+            </p>
+
+            <ul class="text-xs space-y-1.5 text-stone-700 bg-retroBg p-3 rounded border border-stone-300 mb-5">
+              <li>✅ <strong>安心保證</strong>：SGS 防腐劑零檢出、瘦肉精未檢出。</li>
+              <li>✅ <strong>貼心規格</strong>：小家庭一餐剛好煮完一包，不反覆解凍破壞肉汁。</li>
+              <li>✅ <strong>保存方式</strong>：冷凍 -18°C 密封保存 60 天。</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 購物行動按鈕 -->
+        <div class="px-6 pb-6 pt-2 border-t border-stone-200 flex gap-3">
+          <button onclick="addToCart('經典原味高粱香腸 (半斤裝)', 200)" class="flex-1 bg-retroRed hover:bg-retroDarkRed text-white text-sm font-bold py-3 rounded retro-border transition text-center shadow-sm">
+            🛒 加入經典原味 ($200)
+          </button>
+          <button onclick="addToCart('特選黑胡椒香腸 (半斤裝)', 200)" class="flex-1 bg-stone-800 hover:bg-black text-amber-200 text-sm font-bold py-3 rounded retro-border transition text-center shadow-sm">
+            🛒 加入黑胡椒 ($200)
+          </button>
+        </div>
+      </div>
+
+      <!-- 卡片 2：品牌形象照 (形象照.jpg) -->
+      <div class="bg-white rounded-lg retro-border retro-card-shadow overflow-hidden flex flex-col justify-between">
+        <div>
+          <!-- 照片框架 -->
+          <div class="relative bg-stone-900 border-b-4 border-retroWood overflow-hidden group">
+            <img src="形象照.jpg" onerror="this.onerror=null; this.src='Finish/形象照.jpg';" 
+                 alt="北投市場葉記香腸品牌形象照" 
+                 class="w-full h-80 object-cover object-center group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-retroWood text-retroGold text-xs font-serif font-black px-3 py-1 rounded border border-retroGold shadow">
+              老市場職人魂
+            </span>
+            <span class="absolute bottom-3 right-3 bg-black/70 text-amber-200 text-xs px-2.5 py-1 rounded backdrop-blur-sm">
+              北投公有市場現場紀實
+            </span>
+          </div>
+
+          <!-- 說明文案 -->
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-serif text-2xl font-black text-retroDark">
+                北投市場老靈魂・一甲子手藝傳承
+              </h3>
+              <span class="bg-retroGreen text-white text-xs font-bold px-2.5 py-1 rounded">在地老滋味</span>
+            </div>
+            <p class="text-xs text-stone-500 mb-4">實體攤位：台北市北投公有市場 ｜ 每日晨間手工現灌</p>
+            
+            <p class="text-sm text-retroDark/80 leading-relaxed mb-4">
+              走進北投市場，很難不被飄散在巷弄間的炭烤香氣吸引。葉記香腸傳承家族古法秘方，堅持用時間換取美味。我們不走量販工廠的化學填充路線，老老實實用溫體肉、天然腸衣和木炭高溫，守住老北投人記憶深處最溫暖的味道。
+            </p>
+
+            <div class="bg-amber-50 p-3.5 rounded border border-amber-200 text-xs text-amber-900 space-y-1">
+              <p class="font-bold font-serif text-sm text-retroRed">🏮 品牌承諾（Brand Promise）：</p>
+              <p>「給家人吃的，絕不妥協。」我們用每一根飽滿多汁的香腸，陪伴全台灣無數家庭的餐桌好時光。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 社區團購與開團行動按鈕 -->
+        <div class="px-6 pb-6 pt-2 border-t border-stone-200">
+          <a href="#groupCalcSection" class="w-full block bg-retroGold hover:bg-amber-500 text-retroDark text-center text-sm font-black py-3 rounded retro-border transition shadow-sm">
+            📦 社區大樓團購方案・滿 8 斤免運送到管理室
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 影片2 (10 秒短影音 Reels / Shorts Showcase) -->
+  <!-- ========================================== -->
+  <section id="videoSection" class="bg-retroWood text-amber-100 py-14 px-4 border-y-4 border-retroGold">
+    <div class="max-w-4xl mx-auto text-center mb-8">
+      <div class="inline-block bg-retroRed text-amber-200 text-xs font-serif px-3 py-1 rounded mb-2 border border-retroGold">
+        🎬 10秒短影音企劃實體呈現
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-black text-amber-200">
+        【北投市場老靈魂，葉記香腸真傳承】
+      </h2>
+      <p class="text-sm text-stone-300 mt-2 max-w-lg mx-auto">
+        前 3 秒炭火視覺爆擊，中間完美切面垂涎欲滴，最後留下在地溫暖品牌印象。請點擊播放，感受最真實的炭香體感！
+      </p>
+    </div>
+
+    <!-- 垂直手機短影音播放器框 -->
+    <div class="max-w-md mx-auto bg-stone-900 rounded-2xl p-4 retro-border-gold shadow-2xl">
+      <!-- 仿手機螢幕頂部狀態列 -->
+      <div class="flex justify-between items-center px-2 pb-2 text-[11px] text-stone-400 font-mono border-b border-stone-800 mb-2">
+        <span>●●● 葉記香腸 Reels</span>
+        <span>00:10 HD</span>
+      </div>
+
+      <!-- 影片本體 -->
+      <div class="relative rounded-xl overflow-hidden bg-black aspect-[9/16] max-h-[580px] mx-auto flex items-center justify-center">
+        <video id="videoPlayer" 
+               src="影片2.mp4" 
+               onerror="this.onerror=null; this.src='Finish/影片2.mp4';"
+               controls 
+               playsinline 
+               loop 
+               preload="metadata"
+               class="w-full h-full object-cover">
+          您的瀏覽器不支援 HTML5 影片播放。
+        </video>
+      </div>
+
+      <!-- 三幕分鏡解析提示 -->
+      <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs text-stone-300 font-serif">
+        <div class="bg-black/40 p-2 rounded border border-stone-700">
+          <p class="text-amber-400 font-bold">0~3 秒</p>
+          <p class="text-[11px]">炭火肉汁沸騰<br>【老靈魂】</p>
+        </div>
+        <div class="bg-black/40 p-2 rounded border border-stone-700">
+          <p class="text-amber-400 font-bold">4~7 秒</p>
+          <p class="text-[11px]">切開爆汁蒸氣<br>【真香氣】</p>
+        </div>
+        <div class="bg-black/40 p-2 rounded border border-stone-700">
+          <p class="text-amber-400 font-bold">8~10 秒</p>
+          <p class="text-[11px]">職人微笑遞上<br>【好時光】</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 團購算盤機：斤數即時試算 (Group Buying Calc) -->
+  <!-- ========================================== -->
+  <section id="groupCalcSection" class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+    <div class="bg-retroCard retro-border p-6 md:p-10 rounded-lg retro-card-shadow">
+      <div class="text-center mb-6">
+        <span class="bg-retroGreen text-white text-xs font-serif px-3 py-1 rounded">雙北主婦與辦公室揪團神器</span>
+        <h3 class="font-serif text-2xl md:text-3xl font-black text-retroDark mt-2">
+          🧮 社區團購優惠即時算盤
+        </h3>
+        <p class="text-xs md:text-sm text-retroDark/70 mt-1">拉動下方斤數滑桿，系統即時試算梯級折扣、免運優惠與開團贈品</p>
+      </div>
+
+      <div class="max-w-xl mx-auto bg-white p-6 rounded retro-border">
+        <label class="block font-bold text-sm mb-2 text-retroDark flex justify-between">
+          <span>欲訂購總斤數：</span>
+          <span class="text-retroRed font-black text-xl font-serif" id="weightDisplay">8 台斤（16包半斤裝）</span>
+        </label>
+        <input type="range" id="weightSlider" min="1" max="50" value="8" step="1" 
+               class="w-full h-3 bg-stone-300 rounded-lg appearance-none cursor-pointer accent-retroRed"
+               oninput="calculatePrice(this.value)">
+        <div class="flex justify-between text-xs text-stone-500 mt-1">
+          <span>1 斤（嚐鮮）</span>
+          <span>8 斤（免運門檻）</span>
+          <span>20 斤（社區熱門）</span>
+          <span>50 斤（團媽批發）</span>
+        </div>
+
+        <div class="mt-6 border-t-2 border-dashed border-stone-300 pt-4 space-y-2.5 text-sm">
+          <div class="flex justify-between">
+            <span class="text-stone-600">單斤優惠單價：</span>
+            <span class="font-bold text-retroDark" id="unitPriceDisplay">380 元 / 斤</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-600">低溫冷凍運費：</span>
+            <span class="font-bold text-retroGreen" id="shippingDisplay">免運費（現省 $160）</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-600">隨箱加贈禮：</span>
+            <span class="font-bold text-amber-800" id="giftDisplay">氣炸鍋專用烘焙紙 1 包 + 復古保冷袋 1 個</span>
+          </div>
+          <div class="flex justify-between items-center text-base pt-3 border-t border-stone-200">
+            <span class="font-black font-serif text-lg text-retroDark">總計結帳金額：</span>
+            <span class="text-2xl font-black text-retroRed font-serif" id="totalPriceDisplay">NT$ 3,040</span>
+          </div>
+        </div>
+
+        <button onclick="copyGroupOrderText()" class="w-full mt-6 bg-retroGold hover:bg-amber-500 text-retroDark font-black py-3.5 rounded retro-border transition text-center flex items-center justify-center gap-2 shadow-sm">
+          <span>📋</span> 複製社區 LINE 開團揪團邀請文案
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 問卷 (Interactive Questionnaire) -->
+  <!-- ========================================== -->
+  <section id="surveySection" class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+    <div class="bg-white rounded-xl retro-border retro-card-shadow p-6 md:p-10 relative overflow-hidden">
+      <!-- 裝飾印章戳印 -->
+      <div class="absolute top-4 right-4 bg-retroRed text-amber-100 stamp-badge px-4 py-2 text-center text-xs font-serif hidden sm:block">
+        <p>填答即領</p>
+        <p class="text-base font-black">$50折價券</p>
+      </div>
+
+      <div class="text-center mb-8">
+        <span class="bg-retroRed text-white text-xs font-serif px-3 py-1 rounded">顧客真實聲音</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-black text-retroDark mt-2">
+          📝 葉記香腸・品嚐與自煮體驗回饋問卷
+        </h2>
+        <p class="text-sm text-retroDark/70 mt-2 max-w-xl mx-auto">
+          感謝您品嚐北投市場葉記香腸！請花費 2~3 分鐘勾選真實感受，填妥即可立即獲取「50 元回購專屬折價券」！
+        </p>
+      </div>
+
+      <!-- 互動表單本體 -->
+      <form id="feedbackForm" onsubmit="handleSurveySubmit(event)" class="space-y-8">
+        
+        <!-- 第一部分：購買與料理情境 -->
+        <div class="bg-retroBg p-5 rounded-lg border-2 border-stone-300 space-y-4">
+          <h3 class="font-serif font-black text-lg text-retroRed flex items-center gap-2 border-b border-stone-300 pb-2">
+            <span>壹、</span> 購買與料理情境（客群驗證）
+          </h3>
+
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q1. 請問您本次是在哪裡取得葉記香腸？【單選】</label>
+            <div class="grid sm:grid-cols-2 gap-2 text-sm">
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="radio" name="q1_channel" value="北投市場攤位" required class="accent-retroRed">
+                <span>北投公有市場攤位（現場試吃）</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="radio" name="q1_channel" value="社區大樓團購" class="accent-retroRed">
+                <span>社區大樓／團媽 LINE 團購</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="radio" name="q1_channel" value="官方LINE線上" class="accent-retroRed">
+                <span>官方 LINE 帳號／一頁式線上訂購</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="radio" name="q1_channel" value="親友餽贈露營" class="accent-retroRed">
+                <span>親友餽贈／露營聚會品嚐</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q2. 平常在家料理主要採用哪種方式？【可複選】</label>
+            <div class="grid sm:grid-cols-3 gap-2 text-sm">
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q2_cook" value="氣炸鍋" class="accent-retroRed">
+                <span>🌪️ 氣炸鍋</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q2_cook" value="平底鍋乾煎" class="accent-retroRed">
+                <span>🍳 平底鍋無油煎</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q2_cook" value="烤箱" class="accent-retroRed">
+                <span>🔥 烤箱／氣炸烤箱</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q2_cook" value="蒜苗爆炒炒飯" class="accent-retroRed">
+                <span>🍚 蒜苗爆炒／炒飯</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q2_cook" value="電鍋清蒸" class="accent-retroRed">
+                <span>♨️ 電鍋清蒸／水煮</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q3. 主要享用的對象為誰？【可複選】</label>
+            <div class="grid sm:grid-cols-2 gap-2 text-sm">
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q3_people" value="全家正餐" class="accent-retroRed">
+                <span>全家日常正餐（有小孩或長輩）</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q3_people" value="自己獨享下酒" class="accent-retroRed">
+                <span>自己獨享（宵夜、下酒菜）</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q3_people" value="親友聚會露營" class="accent-retroRed">
+                <span>朋友聚餐／露營烤肉派對</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer hover:border-retroRed">
+                <input type="checkbox" name="q3_people" value="便當菜" class="accent-retroRed">
+                <span>隔日上班上學便當主菜</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第二部分：產品核心口感與風味評分 -->
+        <div class="bg-retroBg p-5 rounded-lg border-2 border-stone-300 space-y-4">
+          <h3 class="font-serif font-black text-lg text-retroRed flex items-center gap-2 border-b border-stone-300 pb-2">
+            <span>貳、</span> 產品口感與風味評價（核心產品力）
+          </h3>
+
+          <!-- Q4 多汁飽滿度星級評分 -->
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-1">
+              Q4. 咬下時的「多汁飽滿感（噴水體感）」評價：【點擊評分】
+            </label>
+            <div class="flex items-center gap-3 pt-1">
+              <div class="flex gap-1" id="starContainer">
+                <button type="button" onclick="setStars(1)" class="star-btn text-2xl text-stone-300 hover:text-amber-500">★</button>
+                <button type="button" onclick="setStars(2)" class="star-btn text-2xl text-stone-300 hover:text-amber-500">★</button>
+                <button type="button" onclick="setStars(3)" class="star-btn text-2xl text-stone-300 hover:text-amber-500">★</button>
+                <button type="button" onclick="setStars(4)" class="star-btn text-2xl text-stone-300 hover:text-amber-500">★</button>
+                <button type="button" onclick="setStars(5)" class="star-btn text-2xl text-amber-500">★</button>
+              </div>
+              <span id="starText" class="text-sm font-bold text-retroRed">5 分（極致爆汁噴香）</span>
+              <input type="hidden" name="q4_juicy" id="juicyValue" value="5">
+            </div>
+          </div>
+
+          <!-- Q5 肥瘦比 -->
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q5. 3:7 肥瘦比肉質與天然腸衣口感：【單選】</label>
+            <div class="space-y-1.5 text-sm">
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q5_ratio" value="剛好彈牙" checked class="accent-retroRed">
+                <span>比例剛剛好！瘦肉扎實彈牙、滑順多汁不油膩</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q5_ratio" value="肥肉偏多" class="accent-retroRed">
+                <span>肥肉稍微偏多，稍感油膩</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q5_ratio" value="瘦肉偏多偏柴" class="accent-retroRed">
+                <span>瘦肉偏多，口感略硬偏乾</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Q6 調味鹹淡 -->
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q6. 調味鹹淡與甜度感受：【單選】</label>
+            <div class="grid sm:grid-cols-3 gap-2 text-sm">
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q6_taste" value="太淡" class="accent-retroRed">
+                <span>太淡，不夠入味</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q6_taste" value="剛好" checked class="accent-retroRed">
+                <span>鹹甜剛剛好，肉香自然</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q6_taste" value="偏鹹偏甜" class="accent-retroRed">
+                <span>略微偏鹹或偏甜</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第三部分：包裝規格與價格感知 -->
+        <div class="bg-retroBg p-5 rounded-lg border-2 border-stone-300 space-y-4">
+          <h3 class="font-serif font-black text-lg text-retroRed flex items-center gap-2 border-b border-stone-300 pb-2">
+            <span>參、</span> 規格、定價與回購意願（經濟模型）
+          </h3>
+
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q8. 「半斤（300g，約5~6根）獨立真空包裝」使用體驗：【單選】</label>
+            <div class="space-y-1.5 text-sm">
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q8_package" value="非常滿意一餐一包" checked class="accent-retroRed">
+                <span>非常實用！小家庭一餐剛好煮完，不必反覆退冰出水</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q8_package" value="希望出一斤大包裝" class="accent-retroRed">
+                <span>人口較多，希望推出「一整斤（便宜一點）」的大包裝</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">Q10. 定價每台斤 400 元（半斤真空裝 200 元）感受：【單選】</label>
+            <div class="grid sm:grid-cols-2 gap-2 text-sm">
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q10_price" value="物超所值" class="accent-retroRed">
+                <span>物超所值，純肉口感完全值得</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q10_price" value="合理符合品質" checked class="accent-retroRed">
+                <span>價格合理，符合無添加手工肉品行情</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q10_price" value="略微偏高有團購會買" class="accent-retroRed">
+                <span>略微偏高，若有團購免運或折扣會更想買</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q10_price" value="偏貴" class="accent-retroRed">
+                <span>偏貴，超出平日自煮買菜預算</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Q12 NPS 推薦值 (0~10 分) -->
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-1">
+              Q12. 淨推薦值（NPS）：您向親朋好友或社區鄰居推薦葉記香腸的可能性為幾分？
+            </label>
+            <p class="text-xs text-stone-500 mb-2">0分代表絕不推薦，10分代表極度樂意推薦</p>
+            <div class="flex flex-wrap gap-1.5" id="npsButtonGroup">
+              <!-- 0~10 按鈕 -->
+            </div>
+            <input type="hidden" name="q12_nps" id="npsValue" value="10">
+          </div>
+
+          <!-- Q13 社區團購主意向 -->
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-2">
+              Q13. 如果您所住的社區大樓／公司想發起「滿 8 斤整箱免運」團購，是否有興趣擔任主揪？【單選】
+            </label>
+            <div class="space-y-1.5 text-sm">
+              <label class="flex items-center gap-2 p-2.5 bg-amber-50 rounded border border-amber-300 cursor-pointer">
+                <input type="radio" name="q13_group" value="有意願當主揪" class="accent-retroRed">
+                <span class="font-bold text-retroRed">我有興趣擔任主揪團長！（我們將主動提供免費試吃禮包與開團批發分潤）</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q13_group" value="想跟團不想開團" checked class="accent-retroRed">
+                <span>我想跟團購買，但不想自己開團</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 bg-white rounded border border-stone-300 cursor-pointer">
+                <input type="radio" name="q13_group" value="習慣自己單買" class="accent-retroRed">
+                <span>暫無興趣，我習慣自己少量購買</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第四部分：開放建議與領券聯絡人 -->
+        <div class="bg-retroBg p-5 rounded-lg border-2 border-stone-300 space-y-4">
+          <h3 class="font-serif font-black text-lg text-retroRed flex items-center gap-2 border-b border-stone-300 pb-2">
+            <span>肆、</span> 開放建議與折價券領取資料
+          </h3>
+
+          <div>
+            <label class="block text-sm font-bold text-retroDark mb-1">
+              Q14. 請用一句話告訴老闆：您覺得這款香腸最棒或最需要改進的地方？
+            </label>
+            <textarea name="q14_comment" rows="2" placeholder="例如：肉汁真的很飽滿，希望以後可以出辣味！" 
+                      class="w-full p-2.5 text-sm rounded border border-stone-300 focus:outline-none focus:border-retroRed"></textarea>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-retroDark mb-1">您的稱呼 *</label>
+              <input type="text" name="userName" required placeholder="林小姐 / 陳先生" 
+                     class="w-full p-2 text-sm rounded border border-stone-300 focus:border-retroRed">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-retroDark mb-1">聯絡手機 *</label>
+              <input type="tel" name="userPhone" required placeholder="0912-345-678" 
+                     class="w-full p-2 text-sm rounded border border-stone-300 focus:border-retroRed">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-retroDark mb-1">LINE ID (發送折價券) *</label>
+              <input type="text" name="userLine" required placeholder="請填寫您的 LINE ID" 
+                     class="w-full p-2 text-sm rounded border border-stone-300 focus:border-retroRed">
+            </div>
+          </div>
+        </div>
+
+        <!-- 送出按鈕 -->
+        <div class="text-center pt-2">
+          <button type="submit" class="w-full sm:w-auto bg-retroRed hover:bg-retroDarkRed text-amber-100 font-serif font-black text-xl px-12 py-4 rounded-lg retro-border-gold shadow-[4px_4px_0px_#2D1E18] transition transform active:translate-y-0.5">
+            🏮 立即送出問卷・領取 50 元回購折價券
+          </button>
+          <p class="text-xs text-stone-500 mt-2">填答資料僅供本次產品品質精進與發送優惠券使用，嚴格保密。</p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 領券成功 Modal 彈窗 (Popup Voucher) -->
+  <!-- ========================================== -->
+  <div id="voucherModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-retroBg p-6 md:p-8 rounded-xl retro-border max-w-md w-full relative text-center shadow-2xl">
+      <!-- 關閉按鈕 -->
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-stone-500 hover:text-retroRed font-black text-xl">✕</button>
+
+      <div class="text-4xl mb-2">🎉</div>
+      <h3 class="font-serif font-black text-2xl text-retroRed mb-1">問卷回饋成功！</h3>
+      <p class="text-xs text-stone-600 mb-4">感謝您寶貴的回饋，送上您的專屬回購折價券</p>
+
+      <!-- 復古折價禮券本體 -->
+      <div class="bg-white p-5 rounded-lg border-2 border-dashed border-retroRed relative my-4">
+        <div class="stamp-badge absolute -top-3 -right-3 bg-retroRed text-white px-2 py-0.5 text-[10px] font-bold">
+          試辦期限定
+        </div>
+        <p class="font-serif text-xs text-stone-500">北投市場葉記香腸・回購禮券</p>
+        <p class="font-serif font-black text-4xl text-retroRed my-1">NT$ 50</p>
+        <p class="text-xs text-stone-600">全館半斤真空包／團購不限金額皆可折抵</p>
+        <div class="mt-3 bg-stone-100 p-2 rounded border border-stone-300 flex justify-between items-center text-xs">
+          <span class="font-mono font-bold text-stone-800" id="couponCode">BEITOU50</span>
+          <button onclick="copyCoupon()" class="text-retroRed font-bold hover:underline">複製折扣碼</button>
+        </div>
+      </div>
+
+      <div class="space-y-2 mt-5">
+        <button onclick="goToLineOrder()" class="w-full bg-retroGreen hover:bg-emerald-800 text-white font-bold py-3 rounded retro-border transition text-sm flex items-center justify-center gap-2">
+          <span>💬</span> 加入官方 LINE 領取並折抵下單
+        </button>
+        <button onclick="closeModal()" class="w-full bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs py-2 rounded">
+          返回網頁繼續逛逛
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 底部懸浮購物籃結帳列 (Floating Drawer Cart) -->
+  <!-- ========================================== -->
+  <div id="cartBar" class="fixed bottom-0 left-0 right-0 wood-plaque text-amber-100 border-t-2 border-retroGold px-4 py-3 z-40 transform translate-y-full transition-transform duration-300">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <span class="text-3xl">🧺</span>
+        <div>
+          <p class="text-xs text-amber-300">已挑選商品：<span id="cartCount" class="font-bold text-white text-sm">0</span> 包</p>
+          <p class="font-serif font-black text-xl text-amber-200">結帳總計：<span id="cartTotal">NT$ 0</span></p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="clearCart()" class="text-xs text-stone-400 hover:text-white underline">清空</button>
+        <button onclick="checkoutViaLine()" class="bg-retroRed hover:bg-retroDarkRed text-amber-100 font-bold px-6 py-2.5 rounded retro-border-gold transition text-sm flex items-center gap-2">
+          <span>💬</span> 前往 LINE 快速送單
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 頁尾 (Footer) -->
+  <!-- ========================================== -->
+  <footer class="bg-retroWood text-amber-100/70 border-t-4 border-retroGold py-8 px-4 text-center text-xs space-y-2">
+    <p class="font-serif font-bold text-amber-200 text-sm">北投市場 葉記香腸・品質保證</p>
+    <p>實體攤位：台北市北投公有市場內 ｜ 營業時間：每週二至週日 清晨 06:30 ~ 中午售完為止（週一公休）</p>
+    <p>核心承諾：源自家族百年古法配方 ｜ 100% 台灣優質溫體後腿肉 ｜ SGS 檢驗合格無添加防腐劑</p>
+    <p class="text-stone-500 pt-2">© 2026 北投市場葉記香腸. All rights reserved.</p>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- JavaScript 全域互動邏輯 -->
+  <!-- ========================================== -->
+  <script>
+    // 1. 食譜指南資料與切換
+    const recipes = {
+      airfryer: {
+        title: "氣炸鍋免顧火極速爆汁法（最推薦）",
+        steps: [
+          "免解凍！直接將葉記生香腸放入氣炸烤網（表面切勿劃刀，以鎖住肉汁）。",
+          "溫度設定 180°C，氣炸 10 分鐘。",
+          "拉出烤籃翻面，再以 200°C 氣炸 2~3 分鐘逼出多餘油脂，使天然腸衣爽脆起泡。",
+          "出鍋靜置 1 分鐘讓肉汁回吸，切開或咬下瞬間噴汁！"
+        ],
+        tip: "💡 秘訣：千萬不要拿牙籤狂戳洞，葉記的天然豬小腸衣會自然封鎖高粱肉汁！"
+      },
+      pan: {
+        title: "阿嬤的平底鍋水煎法（皮脆肉嫩不焦黑）",
+        steps: [
+          "平底鍋冷鍋放入香腸，加入約 50ml 清水（約香腸高度 1/4）。",
+          "蓋上鍋蓋開中火燜煮約 5 分鐘，利用滾水蒸氣將內部純肉完全蒸熟。",
+          "水氣收乾後轉微火，香腸本身的 3:7 溫體天然豬油會自然滲出。",
+          "滾動香腸乾煎 2 分鐘，表面呈現金黃微焦斑點即可盛盤。"
+        ],
+        tip: "💡 秘訣：不需額外倒沙拉油，葉記香腸自帶新鮮後腿肉天然豬油，香氣更純！"
+      },
+      rice: {
+        title: "大蒜爆炒香腸切片（經典下酒菜與炒飯）",
+        steps: [
+          "先將香腸蒸熟或微波 1 分鐘後，斜切厚片（約 0.8 cm 保持扎實咬勁）。",
+          "熱鍋免油，直接下香腸厚片翻炒出迷人焦糖肉色。",
+          "起鍋前 30 秒投入大量斜切蒜苗白與新鮮蒜片大火翻炒。",
+          "嗆入一小匙金門高粱酒或米酒，立即起鍋香氣四溢！"
+        ],
+        tip: "💡 秘訣：切厚片才能保留 3:7 瘦肉扎實咬勁與天然爆汁纖維。"
+      }
+    };
+
+    function setRecipe(key) {
+      document.querySelectorAll('.recipe-btn').forEach(b => {
+        b.classList.remove('bg-retroRed', 'text-white');
+        b.classList.add('bg-retroCard', 'text-retroDark');
+      });
+      const activeBtn = document.getElementById(`btn-${key}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-retroCard', 'text-retroDark');
+        activeBtn.classList.add('bg-retroRed', 'text-white');
+      }
+
+      const r = recipes[key];
+      let stepHtml = r.steps.map((s, i) => `
+        <li class="flex items-start gap-2 mb-2">
+          <span class="bg-retroRed text-white rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">${i+1}</span>
+          <span>${s}</span>
+        </li>
+      `).join('');
+      
+      document.getElementById('recipeCard').innerHTML = `
+        <h4 class="font-serif font-black text-lg text-retroRed mb-3 flex items-center gap-2">
+          <span>🔥</span> ${r.title}
+        </h4>
+        <ol class="text-sm text-retroDark/90 mb-3">${stepHtml}</ol>
+        <div class="bg-amber-50 p-2.5 rounded border border-amber-200 text-xs text-amber-900 font-bold">${r.tip}</div>
+      `;
+    }
+    setRecipe('airfryer');
+
+    // 2. 團購算盤計算邏輯
+    function calculatePrice(weight) {
+      weight = parseInt(weight);
+      const halfBags = weight * 2;
+      document.getElementById('weightDisplay').innerText = `${weight} 台斤（${halfBags} 包半斤裝）`;
+
+      let unitPrice = 400;
+      let shipping = "運費 160 元";
+      let gift = "無";
+
+      if (weight >= 30) {
+        unitPrice = 320;
+        shipping = "免運費（黑貓低溫宅配直送）";
+        gift = "氣炸烘焙紙 3 包 + 復古保冷袋 3 個 + 團媽專屬開團紅利";
+      } else if (weight >= 10) {
+        unitPrice = 350;
+        shipping = "免運費（黑貓低溫宅配直送）";
+        gift = "氣炸烘焙紙 2 包 + 復古保冷袋 1 個";
+      } else if (weight >= 5) {
+        unitPrice = 380;
+        shipping = "免運費（雙北超商冷凍店到店）";
+        gift = "氣炸專用烘焙紙 1 包";
+      }
+
+      const total = weight * unitPrice;
+      document.getElementById('unitPriceDisplay').innerText = `${unitPrice} 元 / 斤`;
+      document.getElementById('shippingDisplay').innerText = shipping;
+      document.getElementById('giftDisplay').innerText = gift;
+      document.getElementById('totalPriceDisplay').innerText = `NT$ ${total.toLocaleString()}`;
+    }
+
+    function copyGroupOrderText() {
+      const weight = document.getElementById('weightSlider').value;
+      const text = `【北投市場葉記香腸・社區大樓團購開跑】🔥\n各位鄰居好！北投市場老字號噴水香腸開團囉！\n堅持 100% 台灣溫體豬後腿肉 + 3:7 黃金肥瘦比，絕不加防腐劑！氣炸 12 分鐘全家搶著吃。\n\n我們這團目標滿 8 斤免運，每包半斤真空裝只要 $190（原價 $200）！\n想跟團的鄰居請在下方留言 +1（寫下數量與口味），整箱低溫直送大樓管理室～`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ 開團揪團文案已複製！可以直接貼到 LINE 社區群組囉！");
+      });
+    }
+
+    // 3. 購物車邏輯
+    let cart = [];
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      updateCartBar();
+      document.getElementById('cartBar').classList.remove('translate-y-full');
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCartBar();
+      document.getElementById('cartBar').classList.add('translate-y-full');
+    }
+
+    function updateCartBar() {
+      const count = cart.length;
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      document.getElementById('cartCount').innerText = count;
+      document.getElementById('cartTotal').innerText = `NT$ ${total.toLocaleString()}`;
+    }
+
+    function checkoutViaLine() {
+      if (cart.length === 0) return alert("菜籃還是空的喔！");
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      alert(`已將您的訂單清單（共 ${cart.length} 包，NT$ ${total}）整理好！\n即將為您導引至 LINE 官方帳號進行收件資訊填寫與付款！`);
+    }
+
+    // 4. 問卷 NPS 與星星評分互動
+    function setStars(val) {
+      document.getElementById('juicyValue').value = val;
+      const stars = document.querySelectorAll('.star-btn');
+      stars.forEach((s, idx) => {
+        if (idx < val) {
+          s.classList.remove('text-stone-300');
+          s.classList.add('text-amber-500');
+        } else {
+          s.classList.remove('text-amber-500');
+          s.classList.add('text-stone-300');
+        }
+      });
+      const texts = {
+        1: "1 分（乾柴無汁）",
+        2: "2 分（略乾不夠油潤）",
+        3: "3 分（一般口感）",
+        4: "4 分（多汁扎實）",
+        5: "5 分（極致爆汁噴香）"
+      };
+      document.getElementById('starText').innerText = texts[val];
+    }
+
+    // 初始化 NPS 0~10 按鈕
+    const npsGroup = document.getElementById('npsButtonGroup');
+    if (npsGroup) {
+      for (let i = 0; i <= 10; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `nps-btn w-8 h-8 rounded border text-xs font-bold transition ${i === 10 ? 'bg-retroRed text-white border-retroRed' : 'bg-white text-stone-700 border-stone-300 hover:border-retroRed'}`;
+        btn.innerText = i;
+        btn.onclick = () => setNps(i);
+        btn.id = `nps-btn-${i}`;
+        npsGroup.appendChild(btn);
+      }
+    }
+
+    function setNps(score) {
+      document.getElementById('npsValue').value = score;
+      document.querySelectorAll('.nps-btn').forEach(b => {
+        b.classList.remove('bg-retroRed', 'text-white', 'border-retroRed');
+        b.classList.add('bg-white', 'text-stone-700', 'border-stone-300');
+      });
+      const cur = document.getElementById(`nps-btn-${score}`);
+      if (cur) {
+        cur.classList.remove('bg-white', 'text-stone-700', 'border-stone-300');
+        cur.classList.add('bg-retroRed', 'text-white', 'border-retroRed');
+      }
+    }
+
+    // 5. 問卷提交與 Modal 處理
+    function handleSurveySubmit(e) {
+      e.preventDefault();
+      // 顯示 Modal
+      document.getElementById('voucherModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('voucherModal').classList.add('hidden');
+    }
+
+    function copyCoupon() {
+      navigator.clipboard.writeText("BEITOU50").then(() => {
+        alert("✅ 折扣碼 BEITOU50 已複製！");
+      });
+    }
+
+    function goToLineOrder() {
+      alert("即將為您跳轉至「北投市場葉記香腸」官方 LINE，於對話框輸入【BEITOU50】即可折抵 50 元！");
+      closeModal();
+    }
+
+    // 6. 炭火 ASMR 音效模擬 (Web Audio API)
+    let audioCtx = null;
+    let isPlaying = false;
+    let noiseNode = null;
+
+    function toggleAudio() {
+      if (!isPlaying) {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        const bufferSize = audioCtx.sampleRate * 2;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          data[i] = (b0 + b1 + b2) * 0.035; // 柔和底音
+        }
+        noiseNode = audioCtx.createBufferSource();
+        noiseNode.buffer = buffer;
+        noiseNode.loop = true;
+        noiseNode.connect(audioCtx.destination);
+        noiseNode.start();
+
+        isPlaying = true;
+        document.getElementById('sfxIcon').innerText = '🔥';
+        document.getElementById('sfxText').innerText = '炭火滋滋中...';
+      } else {
+        if (noiseNode) noiseNode.stop();
+        isPlaying = false;
+        document.getElementById('sfxIcon').innerText = '🔊';
+        document.getElementById('sfxText').innerText = '炭火滋滋聲';
+      }
+    }
+  </script>
+</body>
+</html>
